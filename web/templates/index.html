@@ -41,48 +41,56 @@ var chartData = [];
 var opts = {type: BMAP_NAVIGATION_CONTROL_SMALL}//左上角那东西的样式
 map.addControl(new BMap.NavigationControl(opts));//左上角的大小上下左右
 map.addControl(new BMap.ScaleControl());//左下角的比例尺
-var marker = new BMap.Marker(point);//定义标注
+var p=[]
+var route12 = new BMap.DrivingRoute(map, {renderOptions:{map: map, autoViewport: true}});
+var p1 = new BMap.Point(116.404, 39.955);
+var p2 = new BMap.Point(116.544, 39.955); 
+var p3 = new BMap.Point(116.444, 39.815);
+p.push(p1)
+p.push(p2)
+p.push(p3)
+
+var marker = new BMap.Marker(p1);//定义标注
 marker.addEventListener("click", showInfo); //给标注添加点击事件
-function showInfo(){   //那个事件
-    var opts = {    //设置信息窗口样式
-    width : 100,
-    height: 50,
-    title : "此车辆车牌号为:"}    
-    var infoWindow = new BMap.InfoWindow("23333", opts);  // 创建信息窗口对象   
-    var point1 = new BMap.Point(116.404, 39.915); //定义信息窗口出现的位置
-    map.openInfoWindow(infoWindow, point1);      // 打开信息窗口 
-}  
-//marker.removeEventListener("click", showInfo);//移除标注上的事件
+var marker = new BMap.Marker(p2);
+marker.addEventListener("click", showInfo); 
+var marker = new BMap.Marker(p2);
+marker.addEventListener("click", showInfo); 
+
+
 map.addOverlay(marker); //创建标注 
+var a=[]
+a.push(p2)
+route12.search(p1, p3,{waypoints:a});
+
+
+
+
+//marker.removeEventListener("click", showInfo);//移除标注上的事件
+
+//route12.setSearchCompleteCallback(function (rs) {//记录途径全部坐标
+//var pts = route12.getResults().getPlan(0).getRoute(0).getPath();
+//for (var i = 0; i < pts.length; i++) {
+//chartData.push(new BMap.Point(pts[i].lat, pts[i].lng));
+//}
+//});
+
+
+
 // map.addEventListener("dragend", function(){    //添加拖拽事件
 //     var center = map.getCenter();    
 //     alert("地图中心点变更为：" + center.lng + ", " + center.lat);    
 // }
 // );
-var route12 = new BMap.DrivingRoute(map, {renderOptions:{map: map, autoViewport: true}});
-var p1 = new BMap.Point(116.404, 39.955);
-var p2 = new BMap.Point(116.544, 39.955); 
-route12.search(p1, p2);
-route12.setSearchCompleteCallback(function (rs) {
-var pts = route12.getResults().getPlan(0).getRoute(0).getPath();
-for (var i = 0; i < pts.length; i++) {
-chartData.push(new BMap.Point(pts[i].lat, pts[i].lng));
-}
-});
-var route23 = new BMap.DrivingRoute(map, { renderOptions: { map: map, autoViewport: true} });
-var p3 = new BMap.Point(116.444, 39.815);
-var a=[]
-a.push(p2)
-route23.search(p1, p3,{waypoints:a});
-route23.setSearchCompleteCallback(function (rs) {
-var pts = route23.getResults().getPlan(0).getRoute(0).getPath();
-for (var i = 0; i < pts.length; i++) {
-chartData.push(new BMap.Point(pts[i].lat, pts[i].lng));
-}
-});
-//用来存放途经点的坐标
-var viaRouteData = [];
-viaRouteData.push(p2);
+function showInfo(n){   //那个事件
+    var opts = {    //设置信息窗口样式
+    width : 100,
+    height: 50,
+    title : "此车辆车牌号为:"}    
+    var infoWindow = new BMap.InfoWindow(n, opts);  // 创建信息窗口对象   
+    var point1 = p[n-1]; //定义信息窗口出现的位置
+    map.openInfoWindow(infoWindow, point1);      // 打开信息窗口 
+}  
  </script>  
      <script src="../static/js/jquery-1.11.1.min.js"></script>
      <script src="../static/js/bootstrap.min.js "></script>
