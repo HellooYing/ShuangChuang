@@ -108,32 +108,38 @@
     }
 
     function change_route(num) {
+        var p = new Array();
+        var px = new Array();
+        var py = new Array();
+        var past = new Array();
+        var route = new BMap.DrivingRoute(map, { renderOptions: { map: map, autoViewport: true } });
         $.getJSON("/change_route", { 'num': num }, function (result) {
-            for (var j = 0; j < result.point.length; j++) {
-                
+            var j;
+            for (j = 0; j < result.point.length; j++) {
+                var strs= new Array();
+                strs=result.point[j].split(","); 
+                var x=strs[0];
+                var y=strs[1];
+                px.push(x);
+                py.push(y);
+                var pp = new BMap.Point(px[j], py[j]);
+                p.push(pp);
+                if(j!=0&&j!=result.point.length-1)
+                {
+                    past.push(pp)
+                }
             }
             map.clearOverlays()
-                var p = []
-                var route = new BMap.DrivingRoute(map, { renderOptions: { map: map, autoViewport: true } });
-                var p1 = new BMap.Point(116.404, 39.955);
-                var p2 = new BMap.Point(116.544, 39.955);
-                var p3 = new BMap.Point(116.444, 39.815);
-                p.push(p1)
-                p.push(p2)
-                p.push(p3)
-
-                var marker = new BMap.Marker(p1);//定义标注
-                marker.addEventListener("click", showInfo); //给标注添加点击事件
-                var marker = new BMap.Marker(p2);
-                marker.addEventListener("click", showInfo);
-                var marker = new BMap.Marker(p2);
-                marker.addEventListener("click", showInfo);
+                // var marker = new BMap.Marker(p1);//定义标注
+                // marker.addEventListener("click", showInfo); //给标注添加点击事件
+                // var marker = new BMap.Marker(p2);
+                // marker.addEventListener("click", showInfo);
+                // var marker = new BMap.Marker(p2);
+                // marker.addEventListener("click", showInfo);
 
 
-                map.addOverlay(marker); //创建标注 
-                var a = []
-                a.push(p2)
-                route.search(p1, p3, { waypoints: a });
+                // map.addOverlay(marker); //创建标注 
+                route.search(p[0], p[j-1], { waypoints: past });
         });
     }
 </script>
