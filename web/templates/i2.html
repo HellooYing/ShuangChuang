@@ -1,0 +1,108 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>百度地图api</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/font-awesome-4.3.0/css/font-awesome.min.css">
+    <style type="text/css">  
+        html{height:100%}  
+        body{height:100%;margin:0px;padding:0px}  
+        #container{height:100%}  
+    </style>  
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=AD0fbba900defc79ef0659b2eae94cd2"></script>
+</head>
+
+<body>
+
+        <div id="left_list" style="height:600px;" class="left_list col-md-2"> 
+            <a href="#" class="file">标车标物</a>
+        </div>
+                <div id="container"></div> 
+                <!-- <svg version="1.1" type="system" style="position: absolute; top: -500px; left: -500px; width: 2067px; height: 1589px;" x="2067px" y="1589px" viewBox="-500 -500 2067 1589"><path stroke-linejoin="round" stroke-linecap="round" fill-rule="evenodd" style="cursor: pointer; -moz-user-select: none;" fill="none" stroke="#0030ff" stroke-width="5" stroke-dasharray="none" stroke-opacity="0.45" d="M 494 69 L 497 69 522 69 523 69 524 69 525 70 525 71 525 72 525 76 526 107 527 110 527 113 527 118 528 121 528 124 529 125 533 127 534 127 534 128 534 133 536 144 536 149 536 150 535 152 534 156 534 157 533 158 532 158 518 157 513 157 514 157 515 158 515 171 515 173 515 196 515 197 516 199 516 201 516 202 515 205 515 208 516 212 517 214 520 219 521 221 522 222 522 233 522 242 522 247 523 252 523 257 522 262 522 266 522 269 523 280 524 284 526 294 527 300 529 306 531 312 538 332 541 340 542 344 543 348 544 357 545 364 545 367 544 370 544 374 544 378 544 380 547 401 548 405 550 409 551 411 556 416 558 419 558 421 559 423 559 425 559 427 557 438 557 444 557 448 558 454 559 458 561 462 570 488 572 494 573 498 573 500 572 502 572 503 573 505 563 507 548 510 539 512 532 511 526 511 527 520"></path></svg> -->
+</body>
+<script>
+    document.getElementById("left_list").style.height = document.body.clientHeight + "px";
+</script>
+
+<script type="text/javascript"> 
+var chartData = [];
+//加载地图
+var map = new BMap.Map("container");
+map.centerAndZoom(new BMap.Point(118.10000, 24.46667), 11);
+var walking = new BMap.WalkingRoute(map, { renderOptions: { map: map, autoViewport: true} });
+var startpoint = new BMap.Point(118.112917, 24.435153);
+var endpoint = new BMap.Point(118.1056487, 24.45);
+walking.search(startpoint, endpoint);
+//通过setSearchCompleteCallback回调事件可以把步行间的坐标信息获取
+walking.setSearchCompleteCallback(function (rs) {
+var pts = walking.getResults().getPlan(0).getRoute(0).getPath();
+for (var i = 0; i < pts.length; i++) {
+chartData.push(new BMap.Point(pts[i].lat, pts[i].lng));
+}
+});
+//另外两点的步行路线
+var walkings = new BMap.WalkingRoute(map, { renderOptions: { map: map, autoViewport: true} });
+var twoPoint = new BMap.Point(118.1, 24.4491888);
+walkings.search(endpoint, twoPoint);
+walkings.setSearchCompleteCallback(function (rs) {
+var pts = walkings.getResults().getPlan(0).getRoute(0).getPath();
+for (var i = 0; i < pts.length; i++) {
+chartData.push(new BMap.Point(pts[i].lat, pts[i].lng));
+}
+});
+//用来存放途经点的坐标
+var viaRouteData = [];
+viaRouteData.push(endpoint);
+
+$(function () {
+$("#btn_show").click(function () {
+//这边故意让它晚一秒运行，因为上面获取坐标信息是比较慢又是异步
+setTimeout(ShowRoute, 1000);
+});
+});
+
+function ShowRoute() {
+var firstPoint;
+var endPoint;
+var newChartData = [];
+//对坐标点重新定义
+$.each(chartData, function (item, value) {
+newChartData.push(new BMap.Point(value.lat, value.lng));
+});
+//为了获得起点及终点的坐标值,方便对它进行文字处理
+firstPoint = newChartData[0];
+endPoint = newChartData[newChartData.length - 1];
+//加载地图
+var maps = new BMap.Map("r-result");
+maps.centerAndZoom(new BMap.Point(118.10000, 24.46667), 15);
+//把步行线路的坐标集合转化成折线
+var polyline = new BMap.Polyline(newChartData, { strokeColor: "red", strokeWeight: 6, strokeOpacity: 0.5 });
+maps.addOverlay(polyline);
+
+//对起点、终点、途经点做一个简单的处理，泡泡跟文字提示
+var m1 = new BMap.Marker(firstPoint);
+var m2 = new BMap.Marker(endPoint);
+maps.addOverlay(m1);
+maps.addOverlay(m2);
+var lab1 = new BMap.Label("起点", { position: firstPoint });
+var lab2 = new BMap.Label("终点", { position: endPoint });
+maps.addOverlay(lab1);
+maps.addOverlay(lab2);
+
+$.each(viaRouteData, function (item, value) {
+var m = new BMap.Marker(value);
+maps.addOverlay(m);
+var lab = new BMap.Label("途经点", { position: value });
+maps.addOverlay(lab);
+});
+}
+ </script>  
+     <script src="../static/js/jquery-1.11.1.min.js"></script>
+     <script src="../static/js/bootstrap.min.js "></script>
+     <script src="../static/js/preview.js"></script>
+</html>

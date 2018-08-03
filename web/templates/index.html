@@ -57,9 +57,9 @@
     map.addControl(new BMap.ScaleControl());//左下角的比例尺
     var p = []
     var route12 = new BMap.DrivingRoute(map, { renderOptions: { map: map, autoViewport: true } });
-    var p1 = new BMap.Point(116.414, 39.955);
-    var p2 = new BMap.Point(116.544, 39.855);
-    var p3 = new BMap.Point(116.444, 39.815);
+    var p1 = new BMap.Point(123.2789627964,41.7997493976);
+    var p2 = new BMap.Point(123.4328741586,41.7042089794);
+    var p3 = new BMap.Point(123.3185364399,41.4638139576);
     p.push(p1)
     p.push(p2)
     p.push(p3)
@@ -68,7 +68,7 @@
     marker.addEventListener("click", showInfo); //给标注添加点击事件
     var marker = new BMap.Marker(p2);
     marker.addEventListener("click", showInfo);
-    var marker = new BMap.Marker(p2);
+    var marker = new BMap.Marker(p3);
     marker.addEventListener("click", showInfo);
 
 
