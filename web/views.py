@@ -1,26 +1,28 @@
-from django.shortcuts import render
 from django.shortcuts import render, redirect, render_to_response
 from django.http import HttpResponse
 import os
 import json
-from web.models import Car, Feature, Tracking
+from web.models import Feature, Tracking, Sum
 from datetime import datetime
 
-
 def index(request):
-    AllCar = Car.objects.all()
-    return render(request, "index.html", context={'AllCar': AllCar})
+    all_car = Tracking.objects.all()
+    return render(request, "index.html", context={'all_car': all_car})
+
+def tracking(request):
+    all_car = Tracking.objects.all()
+    return render(request, "tracking.html", context={'all_car': all_car})
 
 
 def change_route(request):
     num = request.GET.get('num')
-    car = Car.objects.filter(plate_number=num)
-    point = []
-    point_time = []
+    car = Tracking.objects.filter(number=num)
+    location = []
+    time = []
     for i in car:
-        point = i.point.split('^')
-        point_time = i.point_time.split("^")
-    response_data = {'point': point, 'point_time': point_time}
+        location = i.location.split('^')
+        time = i.time.split("^")
+    response_data = {'location': location, 'time': time}
     return HttpResponse(json.dumps(response_data), content_type="application/json")
 
 def new(request):
@@ -31,6 +33,25 @@ def new(request):
     a.color = request.GET.get("color")
     a.kind = request.GET.get("kind")
     a.save()
+    b=Tracking()
+    b.number = request.GET.get("number")
+    b.time = request.GET.get("time")
+    b.location = request.GET.get("location")
+    b.save()
+    c=Sum()
+    c.total=1
+    if request.GET.get("kind")==1:
+        c.car1=1
+    elif request.GET.get("kind")==2:
+        c.car2=1
+    elif request.GET.get("kind")==3:
+        c.car3=1
+    elif request.GET.get("kind")==4:
+        c.car4=1
+    else:
+        resp={"msg": "车型出错！"}
+        return HttpResponse(json.dumps(resp), content_type="application/json")
+    c.save()
     resp = {"msg": "上传成功！"}
     return HttpResponse(json.dumps(resp), content_type="application/json")
 
@@ -68,6 +89,7 @@ def upload(request):
         a.delete()
         resp = {"msg": "加入成功！"}
         return HttpResponse(json.dumps(resp), content_type="application/json")
+
 
 def test(request):
     return render(request, "test.html", context={})

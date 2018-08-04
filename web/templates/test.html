@@ -4,13 +4,19 @@
 <title> balabala</title>
 </head>
 <body>
-    <button onclick="test()">测试</button>
+    <button onclick="new1()">测试new</button>
+    <button onclick="upload()">测试upload</button>
 </body>
 </html>
 <script src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
 <script>
-    function test(){
+    function upload(){
         $.get("/upload",{'number':'123','time':'2018.8.2.18.42','location':'0','color':'white','kind':'1'}, function(result){
+            alert(result.msg)
+        })
+    }
+    function new1(){
+        $.get("/new",{'number':'123','time':'2018.8.2.18.42','location':'0','color':'white','kind':'1'}, function(result){
             alert(result.msg)
         })
     }
