@@ -11,12 +11,12 @@
 <script src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
 <script>
     function upload(){
-        $.get("/upload",{'number':'123','time':'2018.8.2.18.42','location':'0','color':'white','kind':'1'}, function(result){
+        $.get("/upload",{'time':'201808041822^201808041900','location':'123.4438,41.7040^123.4438,41.7138','color':'白色','kind':'1'}, function(result){
             alert(result.msg)
         })
     }
     function new1(){
-        $.get("/new",{'number':'123','time':'2018.8.2.18.42','location':'0','color':'white','kind':'1'}, function(result){
+        $.get("/new",{'number':'123','time':'201808021842','location':'123.4328,41.7042','color':'白色','kind':'1'}, function(result){
             alert(result.msg)
         })
     }

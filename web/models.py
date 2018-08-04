@@ -28,6 +28,3 @@ class Sum(models.Model):
     car2 = models.IntegerField('车型2',default = 0)
     car3 = models.IntegerField('车型3',default = 0)
     car4 = models.IntegerField('车型4',default = 0)
-    def __str__(self):
-        a=self.color+self.kind
-        return a

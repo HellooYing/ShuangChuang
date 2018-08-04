@@ -26,27 +26,30 @@ def change_route(request):
     return HttpResponse(json.dumps(response_data), content_type="application/json")
 
 def new(request):
+    b=Tracking()
+    b.number = request.GET.get("number")
+    b.time = request.GET.get("time")
+    b.location = request.GET.get("location")
+    b.color = request.GET.get("color")
+    b.kind = request.GET.get("kind")
+    b.save()
     a=Feature()
-    a.number = request.GET.get("number")
+    a.number = b.id
     a.time = request.GET.get("time")
     a.location = request.GET.get("location")
     a.color = request.GET.get("color")
     a.kind = request.GET.get("kind")
     a.save()
-    b=Tracking()
-    b.number = request.GET.get("number")
-    b.time = request.GET.get("time")
-    b.location = request.GET.get("location")
-    b.save()
+    
     c=Sum()
     c.total=1
-    if request.GET.get("kind")==1:
+    if int(request.GET.get("kind"))==1:
         c.car1=1
-    elif request.GET.get("kind")==2:
+    elif int(request.GET.get("kind"))==2:
         c.car2=1
-    elif request.GET.get("kind")==3:
+    elif int(request.GET.get("kind"))==3:
         c.car3=1
-    elif request.GET.get("kind")==4:
+    elif int(request.GET.get("kind"))==4:
         c.car4=1
     else:
         resp={"msg": "车型出错！"}
@@ -74,9 +77,9 @@ def upload(request):
     else:
         a = l[0]
         # 找出轨迹库中对应的轨迹，加点更新
-        b = Tracking.objects.get(number=a.number)
-        b.location = b.location+","+location
-        b.time = b.time+","+time
+        b = Tracking.objects.get(id=a.number)
+        b.location = b.location+"^"+location
+        b.time = b.time+"^"+time
         b.save()
         # 删除上一条特征，加入本条特征
         c=Feature()
