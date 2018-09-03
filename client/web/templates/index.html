@@ -1,10 +1,541 @@
-<html>
-<head>
-<meta charset="utf-8">
-<title>高速公路两客一危车辆</title>
-</head>
-<body>
-   慢慢写
-</body>
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Ebro Admin Template v1.3</title>
+		
+		<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<link rel="shortcut icon" type="image/x-icon" href="../static/favicon.ico">
+		
+	<!-- bootstrap framework-->
+		<link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+	<!-- todc-bootstrap -->
+		<link rel="stylesheet" href="../static/css/todc-bootstrap.min.css">
+	<!-- font awesome -->        
+		<link rel="stylesheet" href="../static/css/font-awesome/css/font-awesome.min.css">
+	<!-- flag icon set -->        
+		<link rel="stylesheet" href="../static/img/flags/flags.css">
+	<!-- retina ready -->
+		<link rel="stylesheet" href="../static/css/retina.css">
+	<!-- bootstrap switch -->
+		<link rel="stylesheet" href="../static/js/lib/bootstrap-switch/stylesheets/bootstrap-switch.css">
+		<link rel="stylesheet" href="../static/js/lib/bootstrap-switch/stylesheets/ebro_bootstrapSwitch.css">	
+	
+	<!-- aditional stylesheets -->
+        <!-- vector map -->
+			<link rel="stylesheet" href="../static/js/lib/jvectormap/jquery-jvectormap-1.2.2.css">
+		<!-- owl carousel -->        
+			<link rel="stylesheet" href="../static/js/lib/owl-carousel/owl.carousel.css">
+		<!-- responsive lightbox -->
+			<link rel="stylesheet" href="../static/js/lib/magnific-popup/magnific-popup.css">
+		<!-- linecons -->        
+			<link rel="stylesheet" href="../static/css/linecons/style.css">
+		<!-- fullcalendar -->
+			<link rel="stylesheet" href="../static/js/lib/fullcalendar/fullcalendar.css">
+
+	<!-- ebro styles -->
+		<link rel="stylesheet" href="../static/css/style.css">
+	<!-- ebro theme -->
+		<link rel="stylesheet" href="../static/css/theme/color_1.css" id="theme">
+		
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" href="../static/css/ie.css">
+		<script src="../static/js/ie/html5shiv.js"></script>
+		<script src="../static/js/ie/respond.min.js"></script>
+		<script src="../static/js/ie/excanvas.min.js"></script>
+	<![endif]-->
+
+	<!-- custom fonts -->
+		<link href='../static/css/fonts.css' rel='stylesheet' type='text/css'>
+			
+	</head>
+	<body class=" sidebar_hidden side_fixed">
+		<div id="wrapper_all">
+								
+			<nav id="top_navigation">
+				<div class="container">
+					<ul id="icon_nav_h" class="top_ico_nav clearfix">
+						<li>
+							<a href="../static/#">
+								<i class="icon-home icon-2x"></i>
+								<span class="menu_label">首页</span>
+							</a>
+						</li>
+						<li>             
+							<a href="../static/#">
+								<!-- <span class="label label-danger">12</span> -->
+								<i class="icon-tasks icon-2x"></i>
+								<span class="menu_label">历史事件</span>
+							</a>
+						</li>
+						<li>             
+							<a href="../static/#">
+								<i class="icon-book icon-2x"></i>
+								<span class="menu_label">更多动态</span>
+							</a>
+						</li>
+						<li class="active">             
+							<a href="../static/#">
+								<i class="icon-fire icon-2x"></i>
+								<span class="menu_label">一键报警</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<!-- mobile navigation -->
+			<nav id="mobile_navigation"></nav>
+			
+			
+			<section class="container clearfix main_section">
+				<div id="main_content_outer" class="clearfix">
+					<div id="main_content">
+						
+						<!-- main content -->
+						<div class="row">
+							<div class="col-lg-3 col-md-6">
+								<div class="box_stat box_ico">
+									<span class="stat_ico stat_ico_1"><i class="li_world"></i></span>
+									<h4>1045</h4>
+									<small>旅游客车</small>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">
+								<div class="box_stat box_ico">
+									<span class="stat_ico stat_ico_2"><i class="li_truck"></i></span>
+									<h4>327</h4>
+									<small>大货车</small>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">
+								<div class="box_stat box_ico">
+									<span class="stat_ico stat_ico_3"><i class="li_fire"></i></span>
+									<h4>135</h4>
+									<small>油罐车</small>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">
+								<div class="box_stat box_ico">
+									<span class="stat_ico stat_ico_4"><i class="li_news"></i></span>
+									<h4>合计865</h4>
+									<small>两客一危车辆</small>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">实时动态</h4>
+									</div>
+									<div class="panel-body">
+										<div class="row">
+											<div class="col-sm-8">
+												<div id="world_map_vector" style="width:100%;height:300px">
+													<script>
+														countries_data = {
+															"US": 2320,
+															"BR": 1945,
+															"IN": 1779,
+															"AU": 1486,
+															"TR": 1024,
+															"CN": 753
+														};  
+													</script>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<table class="table table-striped">
+													<thead>
+														<tr>
+															<th>车型</th>
+															<th class="col_small col_center">最新动态</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td><a href="../static/#">United States</a></td>
+															<td class="col_center">2320</td>
+														</tr>
+														<tr>
+															<td><a href="../static/#">Brazil</a></td>
+															<td class="col_center">1945</td>
+														</tr>
+														<tr>
+															<td><a href="../static/#">India</a></td>
+															<td class="col_center">1779</td>
+														</tr>
+														<tr>
+															<td><a href="../static/#">Australia</a></td>
+															<td class="col_center">1486</td>
+														</tr>
+														<tr>
+															<td><a href="../static/#">Turkey</a></td>
+															<td class="col_center">1024</td>
+														</tr>
+														<tr>
+															<td><a href="../static/#">China</a></td>
+															<td class="col_center">753</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-sm-3">
+								<div class="box_stat box_pos">
+									<img src="../static/img/blank.png" alt="" class="img_ind">
+									<h4>1 045$</h4>
+									<small>Sale (7 days)</small>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="box_stat box_neg">
+									<img src="../static/img/blank.png" alt="" class="img_ind">
+									<h4>865</h4>
+									<small>New Users (24h)</small>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="box_stat peity_chart">
+									<div class="peity_wrapper">
+										<div class="peity_bar_up">2,5,3,6,8,5</div>
+									</div>
+									<h4>10 327&euro;</h4>
+									<small>Sale (June)</small>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="box_stat peity_chart">
+									<div class="peity_wrapper">
+										<div class="peity_bar_down">9,6,7,4,6,3</div>
+									</div>
+									<h4>135</h4>
+									<small>Orders (24h)</small>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="box_stat_circular">
+									<div class="box_stat_circular_a color_a">
+										<h4>865</h4>
+										<small>辆两客一危车辆在高速公路上</small>
+									</div>
+									<div class="box_stat_circular_middle">
+										<div class="easy_chart easy_chart_a" data-percent="42"><i class="glyphicon glyphicon-road"></i></div>
+									</div>
+									<div class="box_stat_circular_b">
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci&hellip;</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="box_stat_circular">
+									<div class="box_stat_circular_a color_b">
+										<h4>1 356</h4>
+										<small>Orders (24h)</small>
+									</div>
+									<div class="box_stat_circular_middle">
+										<div class="easy_chart easy_chart_b" data-percent="70"><span>+70%</span></div>
+									</div>
+									<div class="box_stat_circular_b">
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci possimus&hellip;</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- 
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">Overview</h4>
+									</div>
+									<div class="chart_wrapper">
+										<div class="chart_wrapper">
+											<div id="flot_overview" class="chart_b">
+												<script>
+													data_new_visits = [
+														[new Date('08/02/2012').getTime(),1148],
+														[new Date('08/03/2012').getTime(),920],
+														[new Date('08/04/2012').getTime(),623],
+														[new Date('08/05/2012').getTime(),701],
+														[new Date('08/06/2012').getTime(),502],
+														[new Date('08/07/2012').getTime(),1472],
+														[new Date('08/08/2012').getTime(),1273],
+														[new Date('08/09/2012').getTime(),782],
+														[new Date('08/10/2012').getTime(),410],
+														[new Date('08/11/2012').getTime(),893],
+														[new Date('08/12/2012').getTime(),774],
+														[new Date('08/13/2012').getTime(),621],
+														[new Date('08/14/2012').getTime(),373],
+														[new Date('08/15/2012').getTime(),420]
+													];
+												</script>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						
+						<div class="row">
+							<div class="col-sm-7">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">Social Networks (7 days)</h4>
+									</div>
+									<div class="panel-body">
+										<div class="chart_wrapper">
+											<div id="flot_social" class="chart_b">
+												<script>
+													data_twitter = [
+														[new Date('08/02/2012').getTime(),48],
+														[new Date('08/03/2012').getTime(),63],
+														[new Date('08/04/2012').getTime(),94],
+														[new Date('08/05/2012').getTime(),49],
+														[new Date('08/06/2012').getTime(),82],
+														[new Date('08/07/2012').getTime(),54],
+														[new Date('08/08/2012').getTime(),33]
+													];
+													data_google = [
+														[new Date('08/02/2012').getTime(),32],
+														[new Date('08/03/2012').getTime(),26],
+														[new Date('08/04/2012').getTime(),51],
+														[new Date('08/05/2012').getTime(),49],
+														[new Date('08/06/2012').getTime(),72],
+														[new Date('08/07/2012').getTime(),40],
+														[new Date('08/08/2012').getTime(),49]
+													];
+													data_linkedin = [
+														[new Date('08/02/2012').getTime(),22],
+														[new Date('08/03/2012').getTime(),26],
+														[new Date('08/04/2012').getTime(),41],
+														[new Date('08/05/2012').getTime(),38],
+														[new Date('08/06/2012').getTime(),16],
+														[new Date('08/07/2012').getTime(),19],
+														[new Date('08/08/2012').getTime(),47]
+													];
+													data_facebook = [
+														[new Date('08/02/2012').getTime(),14],
+														[new Date('08/03/2012').getTime(),17],
+														[new Date('08/04/2012').getTime(),9],
+														[new Date('08/05/2012').getTime(),26],
+														[new Date('08/06/2012').getTime(),4],
+														[new Date('08/07/2012').getTime(),31],
+														[new Date('08/08/2012').getTime(),12]
+													];
+												</script>
+											</div>
+										</div>
+									</div>
+									<table class="table table-striped">
+										<thead>
+											<tr>
+												<th>Social Network</th>
+												<th class="col_small col_center">Visits</th>
+												<th class="col_small col_center">Pageviews</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><a href="../static/#">Twitter</a></td>
+												<td class="col_center">423</td>
+												<td class="col_center">631</td>
+											</tr>
+											<tr>
+												<td><a href="../static/#">Google+</a></td>
+												<td class="col_center">316</td>
+												<td class="col_center">549</td>
+											</tr>
+											<tr>
+												<td><a href="../static/#">LinkedIn</a></td>
+												<td class="col_center">264</td>
+												<td class="col_center">388</td>
+											</tr>
+											<tr>
+												<td><a href="../static/#">Facebook</a></td>
+												<td class="col_center">152</td>
+												<td class="col_center">274</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							
+							<div class="col-sm-5">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">Browsers</h4>
+									</div>
+									<div class="panel-body">
+										<div class="chart_wrapper">
+											<div class="chart_b" id="flot_browsers">
+												<script>
+													data_browsers = [
+														{ label: "Firefox",  data: 1428},
+														{ label: "Chrome",  data: 858},
+														{ label: "Safari",  data: 647},
+														{ label: "IE",  data: 433},
+														{ label: "Opera",  data: 141}
+													];  
+												</script>
+											</div>
+										</div>
+									</div>
+									<table class="table table-striped">
+										<thead>
+											<tr>
+												<th>Browser</th>
+												<th class="col_small col_center">Visits</th>
+												<th class="col_small col_center">% visits</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><a href="../static/#">Firefox</a></td>
+												<td class="col_center">1428</td>
+												<td class="col_center">54%</td>
+											</tr>
+											<tr>
+												<td><a href="../static/#">Chrome</a></td>
+												<td class="col_center">858</td>
+												<td class="col_center">21%</td>
+											</tr>
+											<tr>
+												<td><a href="../static/#">Safari</a></td>
+												<td class="col_center">647</td>
+												<td class="col_center">11%</td>
+											</tr>
+											<tr>
+												<td><a href="../static/#">Internet Explorer</a></td>
+												<td class="col_center">433</td>
+												<td class="col_center">6%</td>
+											</tr>
+											<tr>
+												<td><a href="../static/#">Opera</a></td>
+												<td class="col_center">141</td>
+												<td class="col_center">2%</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							 -->
+						</div>
+					</div>
+				</div>
+			</section>
+			<div id="footer_space"></div>
+		</div>
+	
+        <footer id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        &copy; 2018 基于多元多维感知的两客一危车辆轨迹追踪和事故预警
+                    </div>
+                    <div class="col-sm-7">
+                        <ul>
+                            <li><a href="../static/#">Dashboard</a></li>
+                            <li>&middot;</li>
+                            <li><a href="../static/#">Terms of Service</a></li>
+                            <li>&middot;</li>
+                            <li><a href="../static/#">Privacy Policy</a></li>
+                            <li>&middot;</li>
+                            <li><a href="../static/#">Contact us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-1 text-right">
+                        <small class="text-muted">v1.3</small>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        	
+		
+
+	<!--[[ common plugins ]]-->
+	
+	<!-- jQuery -->
+		<script src="../static/js/jquery.min.js"></script>
+	<!-- bootstrap framework -->
+		<script src="../static/bootstrap/js/bootstrap.min.js"></script>
+	<!-- jQuery resize event -->
+		<script src="../static/js/jquery.ba-resize.min.js"></script>
+	<!-- jquery cookie -->
+		<script src="../static/js/jquery_cookie.min.js"></script>
+	<!-- retina ready -->
+		<script src="../static/js/retina.min.js"></script>
+	<!-- typeahead -->
+		<script src="../static/js/lib/typeahead.js/typeahead.min.js"></script>
+		<script src="../static/js/lib/typeahead.js/hogan-2.0.0.js"></script>
+
+	<!-- tinyNav -->
+		<script src="../static/js/tinynav.js"></script>
+	<!-- slimscroll -->
+		<script src="../static/js/lib/jQuery-slimScroll/jquery.slimscroll.min.js"></script>
+	
+	<!-- bootstrap switch -->
+		<script src="../static/js/lib/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+	
+	<!-- touchSwipe -->
+		<script src="../static/js/lib/TouchSwipe/jquery.touchSwipe.min.js"></script>
+		
+	<!-- Navgoco -->
+		<script src="../static/js/lib/navgoco/jquery.navgoco.min.js"></script>
+		
+	<!-- ebro common scripts/functions -->
+		<script src="../static/js/ebro_common.js"></script>
+	
+	
+	<!--[[ page specific plugins ]]-->
+
+	<!-- peity (small charts) -->
+		<script src="../static/js/lib/peity/jquery.peity.min.js"></script>
+	<!-- vector map -->
+		<script src="../static/js/lib/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+		<script src="../static/js/lib/jvectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
+	<!-- easy pie chart -->
+		<script src="../static/js/lib/easy-pie-chart/jquery.easy-pie-chart.js"></script>
+	<!-- charts -->
+		<script src="../static/js/lib/flot/jquery.flot.min.js"></script>
+		<script src="../static/js/lib/flot/jquery.flot.pie.min.js"></script>
+		<script src="../static/js/lib/flot/jquery.flot.time.min.js"></script>
+		<script src="../static/js/lib/flot/jquery.flot.tooltip.min.js"></script>
+		<script src="../static/js/lib/flot/jquery.flot.resize.js"></script>
+	<!-- video embed -->
+		<script src="../static/js/lib/FitVids/jquery.fitvids.js"></script>
+	<!-- carousel -->
+		<script src="../static/js/lib/owl-carousel/owl.carousel.min.js"></script>
+	<!-- responsive lightbox -->
+		<script src="../static/js/lib/magnific-popup/jquery.magnific-popup.min.js"></script>
+	<!-- jQueryUi -->
+		<script src="../static/js/lib/jquery_ui/jquery-ui-1.10.3.custom.min.js"></script>
+	<!-- fullcalendar -->
+		<script src="../static/js/lib/fullcalendar/fullcalendar.js"></script>
+		
+		<script src="../static/js/pages/ebro_dashboard.js"></script>
+
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','static/js/analytics.js','ga');
+		
+		  ga('create', 'UA-65389704-1', 'auto');
+		  ga('send', 'pageview');
+		
+		</script>
+	</body>
 </html>
-<script src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>

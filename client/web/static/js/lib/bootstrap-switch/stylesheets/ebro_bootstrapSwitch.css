@@ -1,0 +1,33 @@
+.has-switch {border-color:#aaa;border-color:rgba(0,0,0,.3);-webkit-border-radius: 0;-moz-border-radius: 0;border-radius: 0;}
+.has-switch span {-webkit-box-shadow: inset 0 2px 2px rgba(0,0,0,.1);-moz-box-shadow: inset 0 2px 2px rgba(0,0,0,.1);box-shadow: inset 0 2px 2px rgba(0,0,0,.1);font-weight:700;padding-left:4px;padding-right:4px;-webkit-border-radius: 0 !important;-moz-border-radius: 0 !important;border-radius: 0 !important}
+.has-switch label:before {display:block;content:'';position:absolute;left:50%;top:50%;margin:-5px 0 0 -2px;background: url(../img/switch_handle.png) no-repeat 0 0;width:5px;height:10px}
+.has-switch.switch-mini label:before {width:3px;height:8px;margin:-3px 0 0 -2px}
+.has-switch span.switch-mini, .has-switch label.switch-mini {line-height:11px}
+.has-switch.switch-width-large span {min-width:100px;text-align:center}
+.has-switch.switch-width-xlarge span {min-width:180px;text-align:center}
+.has-switch span.switch-large, .has-switch label.switch-large {font-size:17px}
+.has-switch span.switch-primary,.has-switch span.switch-left {background: #4b8cf7;border-color: #4b8cf7;filter: none;}
+.has-switch span.switch-primary:hover,.has-switch span.switch-left:hover,.has-switch span.switch-primary:focus,.has-switch span.switch-left:focus,.has-switch span.switch-primary:active,.has-switch span.switch-left:active,.has-switch span.switch-primary.active,.has-switch span.switch-left.active,.has-switch span.switch-primary.disabled,.has-switch span.switch-left.disabled,.has-switch span.switch-primary[disabled],.has-switch span.switch-left[disabled] {background: #4b8cf7;}
+.has-switch span.switch-primary:active,.has-switch span.switch-left:active,.has-switch span.switch-primary.active,.has-switch span.switch-left.active {background: #4b8cf7 \9;}
+.has-switch span.switch-info {background: #46b8da;border-color: #46b8da;filter: none;}
+.has-switch span.switch-info:hover,.has-switch span.switch-info:focus,.has-switch span.switch-info:active,.has-switch span.switch-info.active,.has-switch span.switch-info.disabled,.has-switch span.switch-info[disabled] {background: #46b8da;}
+.has-switch span.switch-info:active,.has-switch span.switch-info.active {background: #46b8da \9;}
+.has-switch span.switch-success {background: #35aa47;border-color: #35aa47;filter: none;}
+.has-switch span.switch-success:hover,.has-switch span.switch-success:focus,.has-switch span.switch-success:active,.has-switch span.switch-success.active,.has-switch span.switch-success.disabled,.has-switch span.switch-success[disabled] {background: #35aa47;}
+.has-switch span.switch-success:active,.has-switch span.switch-success.active {background: #35aa47 \9;}
+.has-switch span.switch-warning {background: #fbb046;border-color: #fbb046;filter: none;}
+.has-switch span.switch-warning:hover,.has-switch span.switch-warning:focus,.has-switch span.switch-warning:active,.has-switch span.switch-warning.active,.has-switch span.switch-warning.disabled,.has-switch span.switch-warning[disabled] {background: #fbb046;}
+.has-switch span.switch-warning:active,.has-switch span.switch-warning.active {background-color: #fbb046 \9;}
+.has-switch span.switch-danger {background: #c6322a;border-color: #c6322a;filter: none;}
+.has-switch span.switch-danger:hover,.has-switch span.switch-danger:focus,.has-switch span.switch-danger:active,.has-switch span.switch-danger.active,.has-switch span.switch-danger.disabled,.has-switch span.switch-danger[disabled] {background: #c6322a;}
+.has-switch span.switch-danger:active,.has-switch span.switch-danger.active {background-color: #c6322a \9;}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi)  {
+	.has-switch label:before {background-image: url(../img/switch_handle@2x.png) !important;background-size: 5px !important}
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+    ::i-block-chrome,.has-switch label {
+		width:34.33%;
+    }
+}
