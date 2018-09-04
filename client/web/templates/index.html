@@ -48,7 +48,7 @@
 
 	<!-- custom fonts -->
 		<link href='../static/css/fonts.css' rel='stylesheet' type='text/css'>
-			
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=AD0fbba900defc79ef0659b2eae94cd2"></script>
 	</head>
 	<body class=" sidebar_hidden side_fixed">
 		<div id="wrapper_all">
@@ -133,52 +133,28 @@
 									<div class="panel-body">
 										<div class="row">
 											<div class="col-sm-8">
-												<div id="world_map_vector" style="width:100%;height:300px">
-													<script>
-														countries_data = {
-															"US": 2320,
-															"BR": 1945,
-															"IN": 1779,
-															"AU": 1486,
-															"TR": 1024,
-															"CN": 753
-														};  
-													</script>
+												<div id="container" style="width:100%;height:300px">
 												</div>
 											</div>
 											<div class="col-sm-4">
 												<table class="table table-striped">
 													<thead>
 														<tr>
-															<th>车型</th>
-															<th class="col_small col_center">最新动态</th>
+															<th style="width:25%;"class="col_center">编号</th>
+															<th style="width:25%;"class="col_center">车型</th>
+															<th style="width:25%;"class="col_center">时间</th>
+															<th style="width:25%;"class="col_small col_center">地点</th>
 														</tr>
 													</thead>
 													<tbody>
+														{% for i in all_car %}
 														<tr>
-															<td><a href="../static/#">United States</a></td>
-															<td class="col_center">2320</td>
+															<td style="width:25%;overflow: hidden;" class="col_center">{{i.number}}</td>
+															<td style="width:25%;overflow: hidden;" class="col_center"><a href="../static/#">{{i.color}}{{i.kind}}</a></td>
+															<td style="width:25%;overflow: hidden;" class="col_center">{{i.time}}</td>
+															<td style="width:25%;overflow: hidden;" class="col_center">{{i.location}}</td>
 														</tr>
-														<tr>
-															<td><a href="../static/#">Brazil</a></td>
-															<td class="col_center">1945</td>
-														</tr>
-														<tr>
-															<td><a href="../static/#">India</a></td>
-															<td class="col_center">1779</td>
-														</tr>
-														<tr>
-															<td><a href="../static/#">Australia</a></td>
-															<td class="col_center">1486</td>
-														</tr>
-														<tr>
-															<td><a href="../static/#">Turkey</a></td>
-															<td class="col_center">1024</td>
-														</tr>
-														<tr>
-															<td><a href="../static/#">China</a></td>
-															<td class="col_center">753</td>
-														</tr>
+														{% endfor %}
 													</tbody>
 												</table>
 											</div>
@@ -527,15 +503,105 @@
 		
 		<script src="../static/js/pages/ebro_dashboard.js"></script>
 
-		<script>
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','static/js/analytics.js','ga');
+		<script type="text/javascript"> 
+			var chartData = [];
+			var map = new BMap.Map("container");//定义地图
+			var point = new BMap.Point(123.4328741586,41.7042089794);//定义点
+			map.centerAndZoom(point, 11);//创建地图
+			//     window.setTimeout(function(){  //平滑移动展示
+			//     map.panTo(new BMap.Point(116.409, 39.8));    
+			// }, 2000);
 		
-		  ga('create', 'UA-65389704-1', 'auto');
-		  ga('send', 'pageview');
+			var opts = { type: BMAP_NAVIGATION_CONTROL_SMALL }//左上角那东西的样式
+			map.addControl(new BMap.NavigationControl(opts));//左上角的大小上下左右
+			map.addControl(new BMap.ScaleControl());//左下角的比例尺
+			var p = []
+			var route12 = new BMap.DrivingRoute(map, { renderOptions: { map: map, autoViewport: true } });
+			var p1 = new BMap.Point(123.2789627964,41.7997493976);
+			var p2 = new BMap.Point(123.4328741586,41.7042089794);
+			var p3 = new BMap.Point(123.3185364399,41.4638139576);
+			p.push(p1)
+			p.push(p2)
+			p.push(p3)
 		
+			var marker = new BMap.Marker(p1);//定义标注
+			marker.addEventListener("click", showInfo); //给标注添加点击事件
+			var marker = new BMap.Marker(p2);
+			marker.addEventListener("click", showInfo);
+			var marker = new BMap.Marker(p3);
+			marker.addEventListener("click", showInfo);
+		
+		
+			map.addOverlay(marker); //创建标注 
+			var a = []
+			a.push(p2)
+			route12.search(p1, p3, { waypoints: a });
+		
+		
+		
+		
+			//marker.removeEventListener("click", showInfo);//移除标注上的事件
+		
+			//route12.setSearchCompleteCallback(function (rs) {//记录途径全部坐标
+			//var pts = route12.getResults().getPlan(0).getRoute(0).getPath();
+			//for (var i = 0; i < pts.length; i++) {
+			//chartData.push(new BMap.Point(pts[i].lat, pts[i].lng));
+			//}
+			//});
+		
+		
+		
+			// map.addEventListener("dragend", function(){    //添加拖拽事件
+			//     var center = map.getCenter();    
+			//     alert("地图中心点变更为：" + center.lng + ", " + center.lat);    
+			// }
+			// );
+			function showInfo(n) {   //那个事件
+				var opts = {    //设置信息窗口样式
+					width: 100,
+					height: 50,
+					title: "此车辆车牌号为:"        
+		}
+				var infoWindow = new BMap.InfoWindow(n, opts);  // 创建信息窗口对象   
+				var point1 = p[n - 1]; //定义信息窗口出现的位置
+				map.openInfoWindow(infoWindow, point1);      // 打开信息窗口 
+			}
+		
+			function change_route(num) {
+				var p = new Array();
+				var px = new Array();
+				var py = new Array();
+				var past = new Array();
+				var route = new BMap.DrivingRoute(map, { renderOptions: { map: map, autoViewport: true } });
+				$.getJSON("/change_route", { 'num': num }, function (result) {
+					var j;
+					for (j = 0; j < result.location.length; j++) {
+						var strs= new Array();
+						strs=result.location[j].split(","); 
+						var x=strs[0];
+						var y=strs[1];
+						px.push(x);
+						py.push(y);
+						var pp = new BMap.Point(px[j], py[j]);
+						p.push(pp);
+						if(j!=0&&j!=result.location.length-1)
+						{
+							past.push(pp)
+						}
+					}
+					map.clearOverlays()
+						// var marker = new BMap.Marker(p1);//定义标注
+						// marker.addEventListener("click", showInfo); //给标注添加点击事件
+						// var marker = new BMap.Marker(p2);
+						// marker.addEventListener("click", showInfo);
+						// var marker = new BMap.Marker(p2);
+						// marker.addEventListener("click", showInfo);
+		
+		
+						// map.addOverlay(marker); //创建标注 
+						route.search(p[0], p[j-1], { waypoints: past });
+				});
+			}
 		</script>
 	</body>
 </html>
