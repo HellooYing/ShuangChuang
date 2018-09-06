@@ -93,37 +93,38 @@
 					<div id="main_content">
 						
 						<!-- main content -->
+						{% for all_car in all_car %}
 						<div class="row">
 							<div class="col-lg-3 col-md-6">
 								<div class="box_stat box_ico">
 									<span class="stat_ico stat_ico_1"><i class="li_world"></i></span>
-									<h4>1045</h4>
+									<h4>{{ all_car.car2 }}</h4>
 									<small>旅游客车</small>
 								</div>
 							</div>
 							<div class="col-lg-3 col-md-6">
 								<div class="box_stat box_ico">
 									<span class="stat_ico stat_ico_2"><i class="li_truck"></i></span>
-									<h4>327</h4>
+									<h4>{{ all_car.car1 }}</h4>
 									<small>大货车</small>
 								</div>
 							</div>
 							<div class="col-lg-3 col-md-6">
 								<div class="box_stat box_ico">
 									<span class="stat_ico stat_ico_3"><i class="li_fire"></i></span>
-									<h4>135</h4>
+									<h4>{{ all_car.car3 }}</h4>
 									<small>油罐车</small>
 								</div>
 							</div>
 							<div class="col-lg-3 col-md-6">
 								<div class="box_stat box_ico">
 									<span class="stat_ico stat_ico_4"><i class="li_news"></i></span>
-									<h4>合计865</h4>
+									<h4>合计{{ all_car.total }}</h4>
 									<small>两客一危车辆</small>
 								</div>
 							</div>
 						</div>
-						
+						{% endfor %}
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="panel panel-default">
@@ -147,10 +148,10 @@
 														</tr>
 													</thead>
 													<tbody>
-														{% for i in all_car %}
+														{% for i in car_feature %}
 														<tr>
 															<td style="width:25%;overflow: hidden;" class="col_center">{{i.number}}</td>
-															<td style="width:25%;overflow: hidden;" class="col_center"><a href="../static/#">{{i.color}}{{i.kind}}</a></td>
+															<td style="width:25%;overflow: hidden;" class="col_center"><a href="" onclick="change_route('{{i.number}}')">{{i.color}}{{i.kind}}</a></td>
 															<td style="width:25%;overflow: hidden;" class="col_center">{{i.time}}</td>
 															<td style="width:25%;overflow: hidden;" class="col_center">{{i.location}}</td>
 														</tr>
@@ -164,7 +165,7 @@
 							</div>
 						</div>
 						
-						<div class="row">
+						<!-- <div class="row">
 							<div class="col-sm-3">
 								<div class="box_stat box_pos">
 									<img src="../static/img/blank.png" alt="" class="img_ind">
@@ -198,7 +199,6 @@
 								</div>
 							</div>
 						</div>
-						
 						<div class="row">
 							<div class="col-sm-6">
 								<div class="box_stat_circular">
@@ -229,7 +229,7 @@
 								</div>
 							</div>
 						</div>
-						<!-- 
+					
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="panel panel-default">
@@ -423,17 +423,13 @@
                     </div>
                     <div class="col-sm-7">
                         <ul>
-                            <li><a href="../static/#">Dashboard</a></li>
+                            <li><a href="../static/#">项目简介</a></li>
                             <li>&middot;</li>
-                            <li><a href="../static/#">Terms of Service</a></li>
-                            <li>&middot;</li>
-                            <li><a href="../static/#">Privacy Policy</a></li>
-                            <li>&middot;</li>
-                            <li><a href="../static/#">Contact us</a></li>
+                            <li><a href="../static/#">联系我们</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-1 text-right">
-                        <small class="text-muted">v1.3</small>
+                        <small class="text-muted">v1.0</small>
                     </div>
                 </div>
             </div>

@@ -6,12 +6,14 @@ from web.models import Feature, Tracking, Sum
 from datetime import datetime
 
 def index(request):
-    all_car = Feature.objects.filter().order_by('-id')[:10]
-    for i in all_car:
+    car_feature = Feature.objects.filter().order_by('-id')[:6]
+    for i in car_feature:
         i.time=i.time.split("^")[-1]
         i.time=i.time[-4:-2]+":"+i.time[-2:-1]+i.time[-1]
         i.location=i.location.split("^")[-1]
-    return render(request, "index.html", context={'all_car': all_car})
+    car_tracking = Tracking.objects.filter().order_by('-id')[:6]
+    all_car = Sum.objects.filter()[0:1]
+    return render(request, "index.html", context={'car_feature': car_feature,'car_tracking':car_tracking,'all_car':all_car})
 
 def tracking(request):
     all_car = Tracking.objects.all()
@@ -31,7 +33,7 @@ def change_route(request):
 
 def new(request):
     b=Tracking()
-    b.number = request.GET.get("number")
+    #b.number = request.GET.get("number")
     b.time = request.GET.get("time")
     b.location = request.GET.get("location")
     b.color = request.GET.get("color")

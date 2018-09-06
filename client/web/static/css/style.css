@@ -815,7 +815,7 @@
 	.pricing_panel_feat .pricing_features li {border-bottom-color:#ddd}
 	
 /* footer */   
-	#footer_space {height: 120px;clear:both}
+	#footer_space {height: 40px;clear:both}
 	#footer {height:40px;line-height:40px;margin-top:-42px;position:relative;border-top:1px solid #e1e1e1;background:#f7f7f7;-webkit-box-shadow: 0 2px 0 #f7f7f7;-moz-box-shadow: 0 2px 0 #f7f7f7;box-shadow: 0 2px 0 #f7f7f7;}
 	#footer ul {margin:0;padding:0;overflow:hidden}
 	#footer li {list-style:none;display:inline-block;line-height:40px}

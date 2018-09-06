@@ -24,7 +24,7 @@ class Tracking(models.Model):
 
 class Sum(models.Model):
     total = models.IntegerField('车总数',default = 0)
-    car1 = models.IntegerField('车型1',default = 0)
-    car2 = models.IntegerField('车型2',default = 0)
-    car3 = models.IntegerField('车型3',default = 0)
-    car4 = models.IntegerField('车型4',default = 0)
+    car1 = models.IntegerField('大货车',default = 0)
+    car2 = models.IntegerField('客车',default = 0)
+    car3 = models.IntegerField('油罐车',default = 0)
+    car4 = models.IntegerField('非两客一危车辆',default = 0)
