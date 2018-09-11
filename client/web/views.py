@@ -47,7 +47,7 @@ def new(request):
     b.kind = request.GET.get("kind")
     b.save()
     a=Feature()
-    a.number = b.id
+    a.number = b.number
     a.time = request.GET.get("time")
     a.location = request.GET.get("location")
     a.color = request.GET.get("color")
