@@ -11,6 +11,13 @@ def index(request):
         i.time=i.time.split("^")[-1]
         i.time=i.time[-4:-2]+":"+i.time[-2:-1]+i.time[-1]
         i.location=i.location.split("^")[-1]
+        print(type(i.kind))
+        if i.kind=="0":
+            i.kind="油罐车"
+        elif i.kind=="1":
+            i.kind="大货车"
+        elif i.kind=="4":
+            i.kind="大客车"
     car_tracking = Tracking.objects.filter().order_by('-id')[:6]
     all_car = Sum.objects.filter()[0:1]
     return render(request, "index.html", context={'car_feature': car_feature,'car_tracking':car_tracking,'all_car':all_car})
@@ -33,7 +40,7 @@ def change_route(request):
 
 def new(request):
     b=Tracking()
-    #b.number = request.GET.get("number")
+    b.number = request.GET.get("number")#这个是车牌号,在收费口是可以判别的
     b.time = request.GET.get("time")
     b.location = request.GET.get("location")
     b.color = request.GET.get("color")
