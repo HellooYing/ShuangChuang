@@ -583,3 +583,17 @@ AttributeError: 'QuerySet' object has no attribute 'length'
 Sum object (8)
 Sum object (9)
 [2018-09-11 20:29:29 +0800] [25146] [INFO] Shutting down: Master
+[2018-09-11 20:30:26 +0800] [25172] [INFO] Starting gunicorn 19.9.0
+[2018-09-11 20:30:26 +0800] [25172] [INFO] Listening at: unix:/tmp/hellomcq.top.socket (25172)
+[2018-09-11 20:30:26 +0800] [25172] [INFO] Using worker: sync
+[2018-09-11 20:30:26 +0800] [25175] [INFO] Booting worker with pid: 25175
+[2018-09-11 21:01:33 +0800] [25172] [INFO] Handling signal: int
+[2018-09-11 13:01:33 +0000] [25175] [INFO] Worker exiting (pid: 25175)
+[2018-09-11 21:01:33 +0800] [25172] [INFO] Shutting down: Master
+[2018-09-11 21:02:00 +0800] [25198] [INFO] Starting gunicorn 19.9.0
+[2018-09-11 21:02:00 +0800] [25198] [INFO] Listening at: unix:/tmp/hellomcq.top.socket (25198)
+[2018-09-11 21:02:00 +0800] [25198] [INFO] Using worker: sync
+[2018-09-11 21:02:00 +0800] [25201] [INFO] Booting worker with pid: 25201
+[2018-09-11 21:10:00 +0800] [25198] [INFO] Handling signal: int
+[2018-09-11 13:10:00 +0000] [25201] [INFO] Worker exiting (pid: 25201)
+[2018-09-11 21:10:00 +0800] [25198] [INFO] Shutting down: Master

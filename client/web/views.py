@@ -62,16 +62,21 @@ def new(request):
     a.kind = request.GET.get("kind")
     a.save()
     
+    k=int(request.GET.get("kind"))
     c=Sum()
     c.total=1
-    if int(request.GET.get("kind"))==1:
-        c.car1=1
-    elif int(request.GET.get("kind"))==2:
-        c.car2=1
-    elif int(request.GET.get("kind"))==3:
+    if k==0:#kind=0以及sum.car3是油罐车
         c.car3=1
-    elif int(request.GET.get("kind"))==4:
+    elif k==1:#大货
+        c.car1=1
+    elif k==4:#客车
+        c.car2=1
+    elif k==2:
         c.car4=1
+        c.total=0
+    elif k==3:
+        c.car4=1
+        c.total=0
     else:
         resp={"msg": "车型出错！"}
         return HttpResponse(json.dumps(resp), content_type="application/json")
