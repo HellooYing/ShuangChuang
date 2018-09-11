@@ -447,3 +447,139 @@ Not Found: /echo.php
 Not Found: /Ip/Up
 Not Found: /echo.php
 Not Found: /Ip/Up
+[2018-09-11 20:08:59 +0800] [24754] [INFO] Handling signal: hup
+[2018-09-11 20:08:59 +0800] [24754] [INFO] Hang up: Master
+[2018-09-11 20:08:59 +0800] [25074] [INFO] Booting worker with pid: 25074
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 111, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/urls/resolvers.py", line 491, in resolve
+    for pattern in self.url_patterns:
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/utils/functional.py", line 37, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/urls/resolvers.py", line 533, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/utils/functional.py", line 37, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/urls/resolvers.py", line 526, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 986, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 969, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 958, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 673, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 665, in exec_module
+  File "<frozen importlib._bootstrap>", line 222, in _call_with_frames_removed
+  File "/home/mcq/sites/hellomcq.top/sc/client/keshe/urls.py", line 21, in <module>
+    url(r'', include('web.urls',namespace='web')),
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 986, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 969, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 958, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 673, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 665, in exec_module
+  File "<frozen importlib._bootstrap>", line 222, in _call_with_frames_removed
+  File "/home/mcq/sites/hellomcq.top/sc/client/web/urls.py", line 2, in <module>
+    from . import views
+  File "/home/mcq/sites/hellomcq.top/sc/client/web/views.py", line 1
+    <<<<<<< HEAD
+     ^
+SyntaxError: invalid syntax
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 111, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/urls/resolvers.py", line 491, in resolve
+    for pattern in self.url_patterns:
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/utils/functional.py", line 37, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/urls/resolvers.py", line 533, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/utils/functional.py", line 37, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/urls/resolvers.py", line 526, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 986, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 969, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 958, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 673, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 665, in exec_module
+  File "<frozen importlib._bootstrap>", line 222, in _call_with_frames_removed
+  File "/home/mcq/sites/hellomcq.top/sc/client/keshe/urls.py", line 21, in <module>
+    url(r'', include('web.urls',namespace='web')),
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 986, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 969, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 958, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 673, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 665, in exec_module
+  File "<frozen importlib._bootstrap>", line 222, in _call_with_frames_removed
+  File "/home/mcq/sites/hellomcq.top/sc/client/web/urls.py", line 2, in <module>
+    from . import views
+  File "/home/mcq/sites/hellomcq.top/sc/client/web/views.py", line 1
+    <<<<<<< HEAD
+     ^
+SyntaxError: invalid syntax
+[2018-09-11 20:17:10 +0800] [25141] [INFO] Starting gunicorn 19.9.0
+[2018-09-11 20:17:10 +0800] [25141] [INFO] Listening at: unix:/tmp/hellomcq.top.socket (25141)
+[2018-09-11 20:17:10 +0800] [25141] [INFO] Using worker: sync
+[2018-09-11 20:17:10 +0800] [25144] [INFO] Booting worker with pid: 25144
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mcq/sites/hellomcq.top/sc/client/web/views.py", line 23, in index
+    print(s.length)
+AttributeError: 'QuerySet' object has no attribute 'length'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mcq/sites/hellomcq.top/sc/client/web/views.py", line 23, in index
+    for w in s:
+AttributeError: 'QuerySet' object has no attribute 'length'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mcq/sites/hellomcq.top/sc/client/web/views.py", line 23, in index
+    for w in s:
+AttributeError: 'QuerySet' object has no attribute 'length'
+[2018-09-11 20:20:14 +0800] [25141] [INFO] Handling signal: int
+[2018-09-11 12:20:14 +0000] [25144] [INFO] Worker exiting (pid: 25144)
+[2018-09-11 20:20:15 +0800] [25141] [INFO] Shutting down: Master
+[2018-09-11 20:20:16 +0800] [25146] [INFO] Starting gunicorn 19.9.0
+[2018-09-11 20:20:16 +0800] [25146] [INFO] Listening at: unix:/tmp/hellomcq.top.socket (25146)
+[2018-09-11 20:20:16 +0800] [25146] [INFO] Using worker: sync
+[2018-09-11 20:20:16 +0800] [25149] [INFO] Booting worker with pid: 25149
+[2018-09-11 20:29:29 +0800] [25146] [INFO] Handling signal: int
+[2018-09-11 12:29:29 +0000] [25149] [INFO] Worker exiting (pid: 25149)
+Sum object (8)
+Sum object (9)
+[2018-09-11 20:29:29 +0800] [25146] [INFO] Shutting down: Master
