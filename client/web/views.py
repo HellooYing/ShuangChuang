@@ -11,7 +11,6 @@ def index(request):
         i.time=i.time.split("^")[-1]
         i.time=i.time[-4:-2]+":"+i.time[-2:-1]+i.time[-1]
         i.location=i.location.split("^")[-1]
-        print(type(i.kind))
         if i.kind=="0":
             i.kind="油罐车"
         elif i.kind=="1":

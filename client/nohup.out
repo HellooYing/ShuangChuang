@@ -1,0 +1,449 @@
+[2018-09-11 17:02:55 +0800] [24376] [INFO] Starting gunicorn 19.9.0
+[2018-09-11 17:02:55 +0800] [24376] [INFO] Listening at: unix:/tmp/hellomcq.top.socket (24376)
+[2018-09-11 17:02:55 +0800] [24376] [INFO] Using worker: sync
+[2018-09-11 17:02:55 +0800] [24379] [INFO] Booting worker with pid: 24379
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/backends/sqlite3/base.py", line 296, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: web_feature
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mcq/sites/hellomcq.top/sc/client/web/views.py", line 10, in index
+    for i in car_feature:
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/query.py", line 268, in __iter__
+    self._fetch_all()
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/query.py", line 1186, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/sql/compiler.py", line 1065, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/backends/sqlite3/base.py", line 296, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: web_feature
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/backends/sqlite3/base.py", line 296, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: web_feature
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mcq/sites/hellomcq.top/sc/client/web/views.py", line 10, in index
+    for i in car_feature:
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/query.py", line 268, in __iter__
+    self._fetch_all()
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/query.py", line 1186, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/sql/compiler.py", line 1065, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/backends/sqlite3/base.py", line 296, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: web_feature
+Internal Server Error: /admin/web/
+Traceback (most recent call last):
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/contrib/sessions/backends/base.py", line 190, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/backends/sqlite3/base.py", line 296, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: django_session
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/contrib/admin/sites.py", line 241, in wrapper
+    return self.admin_view(view, cacheable)(*args, **kwargs)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/contrib/admin/sites.py", line 212, in inner
+    if not self.has_permission(request):
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/contrib/admin/sites.py", line 186, in has_permission
+    return request.user.is_active and request.user.is_staff
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/utils/functional.py", line 213, in inner
+    self._setup()
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/utils/functional.py", line 347, in _setup
+    self._wrapped = self._setupfunc()
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/contrib/auth/middleware.py", line 24, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/contrib/auth/middleware.py", line 12, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/contrib/auth/__init__.py", line 182, in get_user
+    user_id = _get_user_session_key(request)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/contrib/auth/__init__.py", line 59, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/contrib/sessions/backends/base.py", line 55, in __getitem__
+    return self._session[key]
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/contrib/sessions/backends/base.py", line 195, in _get_session
+    self._session_cache = self.load()
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/contrib/sessions/backends/db.py", line 43, in load
+    s = self._get_session_from_db()
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/contrib/sessions/backends/db.py", line 34, in _get_session_from_db
+    expire_date__gt=timezone.now()
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/query.py", line 393, in get
+    num = len(clone)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/query.py", line 250, in __len__
+    self._fetch_all()
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/query.py", line 1186, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/sql/compiler.py", line 1065, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/backends/sqlite3/base.py", line 296, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: django_session
+[2018-09-11 17:03:38 +0800] [24376] [INFO] Handling signal: hup
+[2018-09-11 17:03:38 +0800] [24376] [INFO] Hang up: Master
+[2018-09-11 17:03:38 +0800] [24567] [INFO] Booting worker with pid: 24567
+Forbidden (CSRF cookie not set.): /
+Not Found: /webdav/
+Not Found: /help.php
+Not Found: /java.php
+Not Found: /_query.php
+Not Found: /db_cts.php
+Not Found: /db_pma.php
+Not Found: /logon.php
+Not Found: /help-e.php
+Not Found: /license.php
+Not Found: /log.php
+Not Found: /hell.php
+Not Found: /pmd_online.php
+Not Found: /x.php
+Not Found: /shell.php
+Not Found: /desktop.ini.php
+Not Found: /z.php
+Not Found: /lala.php
+Not Found: /lala-dpr.php
+Not Found: /wpo.php
+Not Found: /text.php
+Not Found: /wp-config.php
+Not Found: /muhstik.php
+Not Found: /muhstik2.php
+Not Found: /muhstiks.php
+Not Found: /muhstik-dpr.php
+Not Found: /lol.php
+Internal Server Error: /uploader.php
+Traceback (most recent call last):
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mcq/sites/hellomcq.top/sc/client/web/views.py", line 91, in upload
+    a = l[0]
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/query.py", line 303, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+Not Found: /cmd.php
+Not Found: /cmx.php
+Not Found: /cmv.php
+Not Found: /cmdd.php
+Not Found: /knal.php
+Not Found: /cmd.php
+Not Found: /shell.php
+Not Found: /appserv.php
+Not Found: /wuwu11.php
+Not Found: /xw.php
+Not Found: /xw1.php
+Not Found: /9678.php
+Not Found: /wc.php
+Not Found: /xx.php
+Not Found: /s.php
+Not Found: /w.php
+Not Found: /sheep.php
+Not Found: /qaq.php
+Not Found: /db.init.php
+Not Found: /db_session.init.php
+Not Found: /wp-admins.php
+Not Found: /m.php
+Not Found: /db_dataml.php
+Not Found: /db_desql.php
+Not Found: /mx.php
+Not Found: /wshell.php
+Not Found: /xshell.php
+Not Found: /qq.php
+Not Found: /conflg.php
+Not Found: /lindex.php
+Not Found: /phpstudy.php
+Not Found: /phpStudy.php
+Not Found: /weixiao.php
+Not Found: /feixiang.php
+Not Found: /ak47.php
+Not Found: /ak48.php
+Not Found: /xiao.php
+Not Found: /yao.php
+Not Found: /defect.php
+Not Found: /webslee.php
+Not Found: /q.php
+Not Found: /pe.php
+Not Found: /hm.php
+Not Found: /cainiao.php
+Not Found: /zuoshou.php
+Not Found: /zuo.php
+Not Found: /aotu.php
+Not Found: /cmd.php
+Not Found: /bak.php
+Not Found: /system.php
+Not Found: /l6.php
+Not Found: /l7.php
+Not Found: /l8.php
+Not Found: /q.php
+Not Found: /56.php
+Not Found: /mz.php
+Not Found: /xx.php
+Not Found: /yumo.php
+Not Found: /min.php
+Not Found: /wan.php
+Not Found: /wanan.php
+Not Found: /ssaa.php
+Not Found: /qq.php
+Not Found: /aw.php
+Not Found: /12.php
+Not Found: /hh.php
+Not Found: /ak.php
+Not Found: /ip.php
+Not Found: /infoo.php
+Not Found: /qq.php
+Not Found: /qwe.php
+Not Found: /1213.php
+Not Found: /post.php
+Not Found: /h1.php
+Forbidden (CSRF cookie not set.): /test.php
+Not Found: /3.php
+Not Found: /phpinfi.php
+Not Found: /aaaa.php
+Not Found: /9510.php
+Not Found: /python.php
+Not Found: /default.php
+Not Found: /sean.php
+Not Found: /app.php
+Not Found: /help.php
+Not Found: /tiandi.php
+Not Found: /miao.php
+Not Found: /xz.php
+Not Found: /linuxse.php
+Not Found: /zuoindex.php
+Not Found: /zshmindex.php
+Not Found: /ceshi.php
+Not Found: /boots.php
+Not Found: /she.php
+Not Found: /s.php
+Not Found: /qw.php
+Forbidden (CSRF cookie not set.): /test.php
+Not Found: /caonma.php
+Not Found: /ss.php
+Not Found: /wcp.php
+Not Found: /xiaoma.php
+Not Found: /xiaomae.php
+Not Found: /xiaomar.php
+Not Found: /qq.php
+Not Found: /data.php
+Not Found: /log.php
+Not Found: /fack.php
+Not Found: /angge.php
+Not Found: /index.php
+Not Found: /phpmyadmin/index.php
+Not Found: /phpMyAdmin/index.php
+Not Found: /pmd/index.php
+Not Found: /pma/index.php
+Not Found: /PMA/index.php
+Not Found: /PMA2/index.php
+Not Found: /pmamy/index.php
+Not Found: /pmamy2/index.php
+Not Found: /mysql/index.php
+Not Found: /admin/index.php
+Not Found: /db/index.php
+Not Found: /dbadmin/index.php
+Not Found: /web/phpMyAdmin/index.php
+Not Found: /admin/pma/index.php
+Not Found: /admin/PMA/index.php
+Not Found: /admin/mysql/index.php
+Not Found: /admin/mysql2/index.php
+Not Found: /admin/phpmyadmin/index.php
+Not Found: /admin/phpMyAdmin/index.php
+Not Found: /admin/phpmyadmin2/index.php
+Not Found: /mysqladmin/index.php
+Not Found: /mysql-admin/index.php
+Not Found: /phpadmin/index.php
+Not Found: /phpmyadmin0/index.php
+Not Found: /phpmyadmin1/index.php
+Not Found: /phpmyadmin2/index.php
+Not Found: /myadmin/index.php
+Not Found: /myadmin2/index.php
+Not Found: /xampp/phpmyadmin/index.php
+Not Found: /phpMyadmin_bak/index.php
+Not Found: /www/phpMyAdmin/index.php
+Not Found: /tools/phpMyAdmin/index.php
+Not Found: /phpmyadmin-old/index.php
+Not Found: /phpMyAdminold/index.php
+Not Found: /phpMyAdmin.old/index.php
+Not Found: /pma-old/index.php
+Not Found: /claroline/phpMyAdmin/index.php
+Not Found: /typo3/phpmyadmin/index.php
+Not Found: /phpma/index.php
+Not Found: /phpmyadmin/phpmyadmin/index.php
+Not Found: /phpMyAdmin/phpMyAdmin/index.php
+Internal Server Error: /upload
+Traceback (most recent call last):
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mcq/sites/hellomcq.top/sc/client/web/views.py", line 91, in upload
+    a = l[0]
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/query.py", line 303, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+Internal Server Error: /upload
+Traceback (most recent call last):
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mcq/sites/hellomcq.top/sc/client/web/views.py", line 91, in upload
+    a = l[0]
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/query.py", line 303, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+Internal Server Error: /upload
+Traceback (most recent call last):
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mcq/sites/hellomcq.top/sc/client/web/views.py", line 93, in upload
+    b = Tracking.objects.get(number=a.number)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/query.py", line 390, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/query.py", line 844, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/query.py", line 862, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/sql/query.py", line 1263, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/sql/query.py", line 1287, in _add_q
+    split_subq=split_subq,
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/sql/query.py", line 1225, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/sql/query.py", line 1096, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/lookups.py", line 20, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/lookups.py", line 70, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "/home/mcq/sites/hellomcq.top/env/lib/python3.5/site-packages/django/db/models/fields/__init__.py", line 965, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: '辽bdb582'
+[2018-09-11 09:35:56 +0000] [24567] [INFO] Parent changed, shutting down: <Worker 24567>
+[2018-09-11 09:35:56 +0000] [24567] [INFO] Worker exiting (pid: 24567)
+<class 'str'>
+<class 'str'>
+<class 'str'>
+<class 'str'>
+<class 'str'>
+<class 'str'>
+<class 'str'>
+<class 'str'>
+<class 'str'>
+<class 'str'>
+<class 'str'>
+<class 'str'>
+<class 'str'>
+<class 'str'>
+<class 'str'>
+<class 'str'>
+<class 'str'>
+<class 'str'>
+[2018-09-11 17:39:05 +0800] [24754] [INFO] Starting gunicorn 19.9.0
+[2018-09-11 17:39:05 +0800] [24754] [INFO] Listening at: unix:/tmp/hellomcq.top.socket (24754)
+[2018-09-11 17:39:05 +0800] [24754] [INFO] Using worker: sync
+[2018-09-11 17:39:05 +0800] [24757] [INFO] Booting worker with pid: 24757
+Not Found: /Ip/Up
+Not Found: /echo.php
+Not Found: /Ip/Up
+Not Found: /echo.php
+Not Found: /Ip/Up
