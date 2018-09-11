@@ -90,7 +90,7 @@ def upload(request):
     else:
         a = l[0]
         # 找出轨迹库中对应的轨迹，加点更新
-        b = Tracking.objects.get(id=a.number)
+        b = Tracking.objects.get(number=a.number)
         b.location = b.location+"^"+location
         b.time = b.time+"^"+time
         b.save()
