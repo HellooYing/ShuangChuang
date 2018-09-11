@@ -18,6 +18,15 @@ def index(request):
         elif i.kind=="4":
             i.kind="大客车"
     car_tracking = Tracking.objects.filter().order_by('-id')[:6]
+    a = Sum.objects.filter()[0]
+    s = Sum.objects.filter()[1:]
+    for j in s:
+        a.total=a.total+j.total
+        a.car1=a.car1+j.car1
+        a.car2=a.car2+j.car2
+        a.car3=a.car3+j.car3
+        j.delete()
+    a.save()
     all_car = Sum.objects.filter()[0:1]
     return render(request, "index.html", context={'car_feature': car_feature,'car_tracking':car_tracking,'all_car':all_car})
 
