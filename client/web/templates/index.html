@@ -151,7 +151,7 @@
 														{% for i in car_feature %}
 														<tr>
 															<td style="width:25%;overflow: hidden;" class="col_center">{{i.number}}</td>
-															<td style="width:25%;overflow: hidden;" class="col_center"><a href="" onclick="change_route('{{i.number}}')">{{i.color}}{{i.kind}}</a></td>
+															<td style="width:25%;overflow: hidden;" class="col_center"><a href="javascript:change_route('{{i.number}}')">{{i.color}}{{i.kind}}</a></td>
 															<td style="width:25%;overflow: hidden;" class="col_center">{{i.time}}</td>
 															<td style="width:25%;overflow: hidden;" class="col_center">{{i.location}}</td>
 														</tr>
