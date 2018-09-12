@@ -28,3 +28,13 @@ class Sum(models.Model):
     car2 = models.IntegerField('客车',default = 0)
     car3 = models.IntegerField('油罐车',default = 0)
     car4 = models.IntegerField('非两客一危车辆',default = 0)
+
+class H_tracking(models.Model):#历史记录，下道的时候加进来
+    number = models.CharField('编号',max_length = 150)
+    time = models.CharField('时间',max_length = 150)
+    location = models.CharField('树莓派',max_length = 150)
+    color = models.CharField('颜色',max_length = 50,default = '')
+    kind = models.CharField('类型细化',max_length = 50,default = '')
+    def __str__(self):
+        a=self.color+self.kind
+        return a
