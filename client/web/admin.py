@@ -6,3 +6,5 @@ admin.site.register(models.Tracking)
 admin.site.register(models.Feature)
 
 admin.site.register(models.Sum)
+
+admin.site.register(models.H_tracking)
