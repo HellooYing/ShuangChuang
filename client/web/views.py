@@ -6,7 +6,7 @@ from web.models import Feature, Tracking, Sum, H_tracking
 from datetime import datetime
 
 def index(request):
-    car_feature = Feature.objects.filter().order_by('-id')[:6]
+    car_feature = Feature.objects.filter().order_by('-id')[:8]
     for i in car_feature:
         i.time=i.time.split("^")[-1]
         i.time=i.time[-4:-2]+":"+i.time[-2:-1]+i.time[-1]
@@ -17,7 +17,6 @@ def index(request):
             i.kind="大货车"
         elif i.kind=="4":
             i.kind="大客车"
-    car_tracking = Tracking.objects.filter().order_by('-id')[:6]
     a = Sum.objects.filter()[0]
     s = Sum.objects.filter()[1:]
     for j in s:
@@ -28,7 +27,7 @@ def index(request):
         j.delete()
     a.save()
     all_car = Sum.objects.filter()[0:1]
-    return render(request, "index.html", context={'car_feature': car_feature,'car_tracking':car_tracking,'all_car':all_car})
+    return render(request, "index.html", context={'car_feature': car_feature,'all_car':all_car})
 
 def tracking(request):
     all_car = Tracking.objects.all()
