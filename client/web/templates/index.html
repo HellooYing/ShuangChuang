@@ -142,8 +142,8 @@
 													<thead>
 														<tr>
 															<th style="width:25%;"class="col_center">车牌号</th>
-															<th style="width:25%;"class="col_center">车型</th>
-															<th style="width:25%;"class="col_center">时间</th>
+															<th style="width:30%;"class="col_center">车型</th>
+															<th style="width:20%;"class="col_center">时间</th>
 															<th style="width:25%;"class="col_small col_center">地点</th>
 														</tr>
 													</thead>
@@ -151,8 +151,8 @@
 														{% for i in car_feature %}
 														<tr>
 															<td style="width:25%;overflow: hidden;" class="col_center">{{i.number}}</td>
-															<td style="width:25%;overflow: hidden;" class="col_center"><a href="javascript:change_route('{{i.number}}')">{{i.color}}{{i.kind}}</a></td>
-															<td style="width:25%;overflow: hidden;" class="col_center">{{i.time}}</td>
+															<td style="width:30%;overflow: hidden;" class="col_center"><a href="javascript:change_route('{{i.number}}')">{{i.color}}{{i.kind}}</a></td>
+															<td style="width:20%;overflow: hidden;" class="col_center">{{i.time}}</td>
 															<td style="width:25%;overflow: hidden;" class="col_center">{{i.location}}</td>
 														</tr>
 														{% endfor %}
