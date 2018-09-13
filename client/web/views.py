@@ -6,7 +6,7 @@ from web.models import Feature, Tracking, Sum, H_tracking
 from datetime import datetime
 
 def index(request):
-    car_feature = Feature.objects.filter().order_by('-id')[:8]
+    car_feature = Feature.objects.filter().order_by('-id')[:7]
     for i in car_feature:
         i.time=i.time.split("^")[-1]
         i.time=i.time[-4:-2]+":"+i.time[-2:-1]+i.time[-1]
