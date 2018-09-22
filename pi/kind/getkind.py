@@ -4,8 +4,8 @@ import numpy as np
 
 def car_type(file_path):
     # 模型目录
-    CHECKPOINT_DIR = './runs/1533550478/checkpoints'
-    INCEPTION_MODEL_FILE = 'model/tensorflow_inception_graph.pb'
+    CHECKPOINT_DIR = './kind/runs/1533550478/checkpoints'
+    INCEPTION_MODEL_FILE = './kind/model/tensorflow_inception_graph.pb'
 
 # inception-v3模型参数
     BOTTLENECK_TENSOR_NAME = 'pool_3/_reshape:0'  # inception-v3模型中代表瓶颈层结果的张量名称
@@ -15,7 +15,7 @@ def car_type(file_path):
     image_data = tf.gfile.FastGFile(file_path, 'rb').read()
 
 # 评估
-    checkpoint_file = './runs/1533550478/checkpoints/model-1900'
+    checkpoint_file = './kind/runs/1533550478/checkpoints/model-1900'
     with tf.Graph().as_default() as graph:
         with tf.Session().as_default() as sess:
         # 读取训练好的inception-v3模型
@@ -51,6 +51,6 @@ def car_type(file_path):
             all_predictions = sess.run(predictions, {input_x: bottleneck_values})
             return str(all_predictions)[1:-1]
         
-a=car_type("./data/car_photos/jc/jc1.jpg")
-print(a)
+# a=car_type("./kind/data/car_photos/jc/jc1.jpg")
+# print(a)
 
