@@ -1,7 +1,7 @@
 from pipeline import search_car
 import cv2
 import os
-def SaveVehical(VideoPath=r'../video/test.mp4'):
+def SaveVehical(VideoPath=r'../video/test1.mp4'):
     #读取视频
     cap=cv2.VideoCapture(VideoPath)
     frameCount=0
