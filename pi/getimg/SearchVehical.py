@@ -1,11 +1,12 @@
 import cv2
 import os
+import types
+from RemoveRe import DelRePic
 def SearchVehical(VideoPath):
     cap=cv2.VideoCapture(VideoPath)
     capture=r".\capture"
     classIdentify_car=".\cars.xml"
     classfier = cv2.CascadeClassifier(classIdentify_car)
-    value,frame=cap.read()
     if not os.path.exists(capture):
         os.makedirs(capture)
     FrameCount=0
@@ -20,11 +21,15 @@ def SearchVehical(VideoPath):
         if len(carRects)>0:
             for carRect in carRects:  # 单独框出每一张车辆
                 x, y, w, h = carRect
-                i=i+1
-                fragment = frame[x:x + w, y:y + h]
-                #cv2.rectangle(frame, (x, y), (x + w, y + h),(0,255,0), 2)
-                cv2.imwrite(r".\capture\Vehical{}_{}.jpg".format(FrameCount,i),fragment)
-                print("成功捕捉   .\capture\Vehical{}_{}.jpg".format(FrameCount,i))
+                ratio=w/h
+                #先用长宽比筛选出图片
+                if ratio>0.8 and ratio <1.2:
+                    fragment = frame[x:x + w, y:y + h]
+                        # cv2.rectangle(frame, (x, y), (x + w, y + h),(0,255,0), 2)
+                    fragment_path = r".\capture\Vehical{}_{}.jpg".format(FrameCount, i)
+                    cv2.imwrite(fragment_path, fragment)
+                    #print("成功捕捉" + fragment_path)
+    DelRePic()
     return capture
 if __name__=="__main__":
-    SearchVehical(r"../video/test1.mp4")
+    SearchVehical(r"../video/test4.mp4")
