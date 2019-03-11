@@ -29,6 +29,30 @@ def index(request):
     all_car = Sum.objects.filter()[0:1]
     return render(request, "index.html", context={'car_feature': car_feature,'all_car':all_car})
 
+def history(request):
+    car_feature = Feature.objects.filter().order_by('-id')
+    for i in car_feature:
+        i.time=i.time.split("^")[-1]
+        i.time=i.time[-4:-2]+":"+i.time[-2:-1]+i.time[-1]
+        i.location=i.location.split("^")[-1]
+        if i.kind=="0":
+            i.kind="油罐车"
+        elif i.kind=="1":
+            i.kind="大货车"
+        elif i.kind=="4":
+            i.kind="大客车"
+    a = Sum.objects.filter()[0]
+    s = Sum.objects.filter()[1:]
+    for j in s:
+        a.total=a.total+j.total
+        a.car1=a.car1+j.car1
+        a.car2=a.car2+j.car2
+        a.car3=a.car3+j.car3
+        j.delete()
+    a.save()
+    all_car = Sum.objects.filter()[0:1]
+    return render(request, "history.html", context={'car_feature': car_feature,'all_car':all_car})
+
 def tracking(request):
     all_car = Tracking.objects.all()
     return render(request, "tracking.html", context={'all_car': all_car})

@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> balabala</title>
+</head>
+<link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+<!-- todc-bootstrap -->
+<link rel="stylesheet" href="../static/css/todc-bootstrap.min.css">
+<!-- font awesome -->
+<link rel="stylesheet" href="../static/css/font-awesome/css/font-awesome.min.css">
+<!-- flag icon set -->
+<link rel="stylesheet" href="../static/img/flags/flags.css">
+<!-- retina ready -->
+<link rel="stylesheet" href="../static/css/retina.css">
+<!-- bootstrap switch -->
+<link rel="stylesheet" href="../static/js/lib/bootstrap-switch/stylesheets/bootstrap-switch.css">
+<link rel="stylesheet" href="../static/js/lib/bootstrap-switch/stylesheets/ebro_bootstrapSwitch.css">
+<link rel="stylesheet" href="../static/js/lib/jvectormap/jquery-jvectormap-1.2.2.css">
+<link rel="stylesheet" href="../static/js/lib/owl-carousel/owl.carousel.css">
+<link rel="stylesheet" href="../static/js/lib/magnific-popup/magnific-popup.css">
+<link rel="stylesheet" href="../static/css/linecons/style.css">
+<link rel="stylesheet" href="../static/js/lib/fullcalendar/fullcalendar.css">
+<link rel="stylesheet" href="../static/css/style.css">
+<link rel="stylesheet" href="../static/css/theme/color_1.css" id="theme">
+
+<link href='../static/css/fonts.css' rel='stylesheet' type='text/css'>
+
+<body>
+    <table class="table table-striped" style="table-layout:fixed;word-break:break-all;">
+        <thead>
+            <tr>
+                <th style="width:25%;" class="col_center">车牌号</th>
+                <th style="width:25%;" class="col_center">车型</th>
+                <th style="width:15%;" class="col_center">时间</th>
+                <th style="width:35%;" class="col_small col_center">地点</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in car_feature %}
+            <tr>
+                <td style="width:25%;overflow: hidden;" class="col_center">{{i.number}}</td>
+                <td style="width:25%;overflow: hidden;" class="col_center"><a
+                        href="javascript:change_route('{{i.number}}')">{{i.color}}{{i.kind}}</a></td>
+                <td style="width:15%;overflow: hidden;" class="col_center">{{i.time}}</td>
+                <td style="width:35%;overflow: hidden;" class="col_center">{{i.location}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>

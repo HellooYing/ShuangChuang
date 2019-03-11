@@ -3,6 +3,7 @@ from . import views
 app_name = 'web'
 urlpatterns = [
     url(r'^$',views.index,name='index'),
+    url(r'^history',views.history,name='history'),
     url(r'^tracking',views.tracking,name='tracking'),
     url(r'^upload',views.upload,name='upload'),
     url(r'^test',views.test,name='test'),
