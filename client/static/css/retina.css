@@ -1,0 +1,8 @@
+/* [ ---- Ebro Admin - retina ready ---- ] */
+
+	@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi)  { 
+		#text_nav_v > li > a i {background-image: url('../img/expand_collapse@2x.png') !important;background-size: 14px !important}
+		.box_pos .img_ind {background-image: url(../img/arrow_pos@2x.png) !important;background-size: 20px !important}
+		.box_neg .img_ind {background-image: url(../img/arrow_neg@2x.png) !important;background-size: 20px !important}
+        input[type="checkbox"]:checked::after {background-image: url(../img/checkmark@2x.png) !important;background-size: 21px !important}
+	}
